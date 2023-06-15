@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+.App{
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#default-homepage-main{
+display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#homepage-main-image{
+  width: auto;
+  height: 600px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#default-homepage-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 80vw;
+}
+
+#homepage-left-container{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+#motivional-quote{
+  text-align: left;
+  margin-left: 100px;
+  font-size: 50px;
+  width: 500px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 0px;
+}
+
+.button {
+  background-color: white;
+  border: solid 1px black;
+  font-family: 'Noto Sans', sans-serif;
+  border-radius: 20px;
+  width: 200px;
+  height: 30px;
+}
+
+.button:hover{
+  border: solid 2px black;
+}
+
+#default-homepage-routine-button{
+  margin-left: 100px;
+}
+
+#header-main-div{
+display: flex;
+flex-direction: column;
+background-color: white;
+color: black;
+}
+
+#header-top-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+#login-link{
+  margin-right: 50px;
+  font-weight: 700;
+  margin-top: 45px;
+  background-color: white;
+  border:none;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  height: 30px;
+  width: 200px;
+}
+
+#login-link:hover{
+border-radius: 20px;
+background-color:rgb(227, 227, 227)
+
+}
+
+.nav-bar-link{
+background-color: black;
+font-family: 'Noto Sans', sans-serif;
+font-weight: 700;
+color: white;
+border: none;
+font-size: 14px;
+padding-bottom: 20px;
+margin-right: 20px;
+}
+
+.nav-bar-link:hover{
+  text-decoration: underline;
+}
+
+#nav-bar{
+  background-color: black;
+  padding-left: 100px;
+  padding-top: 15px;
+  
+}
+
+#site-main-logo{
+  font-family: 'Jost', sans-serif;
+  margin-left: 105px;
+  padding-top: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+#site-main-logo:hover{
+  color: rgb(69, 69, 69);
+}
+
+a {
+text-decoration: none;
+}
+
+#register-main-div{
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 70vh;
+  font-family: 'Noto Sans', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+#password-div{
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#username{
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#register-button{
+
+  background-color: black;
+  color:white;
+  font-family: 'Noto Sans', sans-serif;
+  border:none;
+  border-radius: 20px;
+  height: 30px;
+  width: 100px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#register-button:hover{
+
+  border: solid 1px black;
+  background-color: white;
+  color: black;
+}
+
+#register-button-div{
+
+  display: flex;
+  justify-content: center;
+}
+
+#confirm-password{
+  margin-top: 15px;
 }
