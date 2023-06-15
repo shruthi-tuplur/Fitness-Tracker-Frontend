@@ -172,3 +172,70 @@ text-decoration: none;
 #confirm-password{
   margin-top: 15px;
 }
+
+#sign-in-link{
+  font-size: 13px;
+  color: rgb(96, 96, 96);
+  margin-top: 30px;
+}
+
+#sign-in-link:hover{
+  text-decoration: underline;
+}
+
+#login-main-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  font-family: 'Noto Sans', sans-serif;
+
+}
+
+#login-button-div{
+
+  display: flex;
+  justify-content: center;
+}
+
+#login-button{
+
+  background-color: black;
+  color:white;
+  font-family: 'Noto Sans', sans-serif;
+  border:none;
+  border-radius: 20px;
+  height: 30px;
+  width: 100px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#login-button:hover{
+
+  border: solid 1px black;
+  background-color: white;
+  color: black;
+}
+
+
+#register-link{
+  font-size: 13px;
+  color: rgb(96, 96, 96);
+  margin-top: 30px;
+}
+
+#register-link:hover{
+  text-decoration: underline;
+}
+
+#login-page-header{
+
+  text-align: center;
+}
+
+#create-acc-header{
+
+  text-align: center;
+}
