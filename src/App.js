@@ -27,7 +27,7 @@ function App() {
 
   }
 
-  
+
 
 
   return (
@@ -38,7 +38,7 @@ function App() {
           <DefaultHomepage />
         </Route>
         <Route path = '/users/register'>
-          <Register />
+          <Register setToken = {setToken} setUser = {setUser}/>
         </Route>
         <Route path = '/users/login'>
           <Login />
