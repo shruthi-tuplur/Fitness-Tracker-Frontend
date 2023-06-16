@@ -38,7 +38,7 @@ function App() {
           <DefaultHomepage />
         </Route>
         <Route path = '/users/register'>
-          <Register setToken = {setToken} setUser = {setUser}/>
+          <Register setToken = {setToken} setUser = {setUser} fetchFromAPI={fetchFromAPI}/>
         </Route>
         <Route path = '/users/login'>
           <Login />
