@@ -6,7 +6,8 @@ import React, {useState, useEffect} from 'react'
 import {
   Header,
   Login,
-  Register
+  Register,
+  PublicRoutines
 } from './components'
 
 import { fetchFromAPI } from './api';
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path = '/users/login'>
           <Login />
+        </Route>
+        <Route path = '/routines/publicroutines'>
+          <PublicRoutines />
         </Route>
       </div>
     </BrowserRouter>

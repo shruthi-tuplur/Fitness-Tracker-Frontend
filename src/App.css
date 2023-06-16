@@ -240,3 +240,104 @@ text-decoration: none;
 
   text-align: center;
 }
+
+.routine{
+  display: flex;
+  flex: column;
+  margin-left: 150px;
+  border: solid 1px black;
+  margin-bottom: 20px;
+  flex-direction: column;
+  width: 50vw;
+}
+
+#public-routines-main-div{
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+#routine-title{
+  font-weight: bold;
+  background-color: rgb(202, 202, 202);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#creator-name-div{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  display: flex;
+}
+
+#creator-name{
+  margin-top: 0px;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  margin-bottom: 0px; 
+}
+
+#routine-creator-label{
+  margin-top: 0px;
+  margin-left: 3px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  color: grey;
+  padding-top: 2px;
+  margin-bottom: 0px;
+}
+
+#routine-goal-div{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  display: flex;
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+}
+
+#routine-goal-label{
+  margin-top: 0px;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px; 
+}
+
+#routine-goal{
+  font-size: 14px;
+  font-family: 'Noto Sans', sans-serif;
+  margin-top: 0px;
+  margin-left: 3px;
+}
+
+#login-or-reg-to-post{
+  border: solid 1px black;
+  font-family: 'Noto Sans';
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#want-to-start-sharing-button{
+  background-color: black;
+  color: white;
+}
+
+#want-to-start-sharing-button:hover{
+  color: black;
+  background-color: white;
+}

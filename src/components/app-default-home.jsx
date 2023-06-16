@@ -8,7 +8,7 @@ return (
         <div id='default-homepage-left'>
             <div id='homepage-left-container'>
                 <h1 id='motivional-quote'>You don't have to be great to start, but you have to start to be great.</h1>
-                <button className="button" id='default-homepage-routine-button'>View public fitness routines</button>
+                <Link to = '/routines/publicroutines'><button className="button" id='default-homepage-routine-button'>View public fitness routines</button></Link>
             </div>
         </div>
         <div id='default-homepage-right'>

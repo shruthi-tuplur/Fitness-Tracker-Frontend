@@ -5,7 +5,7 @@ import { fetchFromAPI } from "../api";
 
 const Register = (props) => {
 
-    const {setToken, setUser, fetchFromAPI} = props;
+    const {setToken, setUser} = props;
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
     const history = useHistory()
@@ -25,7 +25,7 @@ const Register = (props) => {
 
         const data = await fetchFromAPI({
             path: "/users/register",
-            method: "post",
+            method: "POST",
             body: requestBody,
         })
 
