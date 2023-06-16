@@ -6,8 +6,8 @@ import { fetchFromAPI } from "../api";
 const Register = (props) => {
 
     const {setToken, setUser, fetchFromAPI} = props;
-    const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
     const history = useHistory()
     let unconfirmedPassword;
 
@@ -24,15 +24,17 @@ const Register = (props) => {
     }
 
         const data = await fetchFromAPI({
-            path: '/users/register',
-            method: 'post',
+            path: "/users/register",
+            method: "post",
             body: requestBody,
         })
 
-        const {token} = data;
+        console.log("data: ", data);
+
+        const { token } = data;
         if (token){
             const data = await fetchFromAPI({
-                path: '/users/me',
+                path: "/users/me",
                 token
             })
 
@@ -42,6 +44,7 @@ const Register = (props) => {
                 setPassword('');
                 setToken(token);
                 setUser(user);
+
                 history.push('/')
             }
         }
@@ -64,8 +67,11 @@ return (
            <h2 id='create-acc-header'>Create an account</h2> 
            <div id='username'>
            <label htmlFor='username'  className='login-label' >Username </label>
-                    <input required type='text' name='username' onChange ={(event) => {
-                        setUser(event.target.value)
+                    <input 
+                    required 
+                    type='text' 
+                    name='username' 
+                    onChange ={(event) => {
                         setUsername(event.target.value)
                         }}></input>
             

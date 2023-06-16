@@ -8,6 +8,7 @@ import {
   Login,
   Register
 } from './components'
+
 import { fetchFromAPI } from './api';
 
 function App() {
@@ -15,17 +16,17 @@ function App() {
   const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
   
-  const fetchActivities = async() => {
-    const data = await fetchFromAPI({
-      path: '/activities',
-      token
-    })
+  // const fetchActivities = async() => {
+  //   const data = await fetchFromAPI({
+  //     path: '/activities',
+  //     token
+  //   })
 
-    if(data?.activities){
-      setActivities(data.activities);
-    }
+  //   if(data?.activities){
+  //     setActivities(data.activities);
+  //   }
 
-  }
+  // }
 
   useEffect(() => {
     if(token){
@@ -45,7 +46,7 @@ function App() {
           <DefaultHomepage />
         </Route>
         <Route path = '/users/register'>
-          <Register setToken = {setToken} setUser = {setUser} fetchFromAPI={fetchFromAPI}/>
+          <Register setToken = {setToken} setUser = {setUser}/>
         </Route>
         <Route path = '/users/login'>
           <Login />
