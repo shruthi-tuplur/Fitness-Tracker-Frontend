@@ -1,19 +1,57 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { registerUser } from "../api";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchFromAPI } from "../api";
+
 
 const Register = (props) => {
 
     const {setToken, setUser, fetchFromAPI} = props;
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
+    const history = useHistory()
     let unconfirmedPassword;
 
+
     const handleSubmit = async (event) => {
+
         event.preventDefault()
+
+        const requestBody = {
+            user: {
+                username,
+                password
+            }
+    }
+
+        const data = await fetchFromAPI({
+            path: '/users/register',
+            method: 'post',
+            body: requestBody,
+        })
+
+        const {token} = data;
+        if (token){
+            const data = await fetchFromAPI({
+                path: '/users/me',
+                token
+            })
+
+            const user = data;
+            if (token) {
+                setUsername('');
+                setPassword('');
+                setToken(token);
+                setUser(user);
+                history.push('/')
+            }
+        }
+        /*
         setUsername(username);
         setPassword(password);
-        const registerNewUser = await registerUser(username, password);
+        const registerNewUser = await fetchFromAPI({
+            
+        });
+        */ 
         //setToken(registerNewUser.data.token)
         
         

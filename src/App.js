@@ -2,7 +2,7 @@
 import './App.css';
 import DefaultHomepage from './components/app-default-home';
 import { BrowserRouter, Route, Link, Switch} from 'react-router-dom'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {
   Header,
   Login,
@@ -27,6 +27,13 @@ function App() {
 
   }
 
+  useEffect(() => {
+    if(token){
+        console.log('token: ', token)
+      //setToken(localStorage.getItem('token'))
+    }
+    
+}, [token])     
 
 
 
