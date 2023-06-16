@@ -2,11 +2,25 @@
 import './App.css';
 import DefaultHomepage from './components/app-default-home';
 import { BrowserRouter, Route, Link, Switch} from 'react-router-dom'
-import Header from './components/header';
-import Register from './components/register';
-import Login from './components/login';
+import React, {useState} from 'react'
+import {
+  Header,
+  Login,
+  Register
+} from './components'
+import 
 
 function App() {
+  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
+  
+  const fetchActivities = async() => {
+    const data = await fetchFromAPI
+
+
+  }
+
+
   return (
     <BrowserRouter>
       <div className="App">
