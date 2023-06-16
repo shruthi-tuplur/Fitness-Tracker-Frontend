@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { registerUser } from "../api";
 
 const Register = (props) => {
 
@@ -12,28 +13,9 @@ const Register = (props) => {
         event.preventDefault()
         setUsername(username);
         setPassword(password);
+        const registerNewUser = await registerUser(username, password);
+        //setToken(registerNewUser.data.token)
         
-        try{
-            const registerNewUser = await fetchFromAPI({
-                path: '/users/register', 
-                method: 'post',  
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    user: {
-                        username,
-                        password
-                    }
-                })
-            })
-
-            const result = registerNewUser.json()
-            console.log(result)
-            return result;
-        } catch(err){
-            console.error(err)
-        }
         
     }
  
