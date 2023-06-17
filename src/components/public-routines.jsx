@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { fetchFromAPI } from "../api";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const PublicRoutines = () => {
     const [routines, setRoutines] = useState([]);
@@ -49,7 +50,7 @@ return (
         </div>
         <div id='login-or-reg-to-post'>
             <p id='want-to-start-sharing'>Want to start sharing your routines?</p>
-            <button className="button" id='want-to-start-sharing-button'>login or register to post</button>
+            <Link to='/users/login'><button className="button" id='want-to-start-sharing-button'>login or register to post</button></Link>
         </div>
     </div>
 )
