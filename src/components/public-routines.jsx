@@ -38,6 +38,31 @@ return (
                             <p id='routine-goal-label'>Goal: </p>
                             <p id='routine-goal'>{routine.goal}</p>
                         </div>
+                        <div id='routine-activities-div'>
+                            
+                            <p id='activities-sec-header'>Activities</p>
+                            {
+                                routine.activities.map(activity => {
+                                    return(
+                                        <div key={activity.id} className = 'activity-card'>
+                                            <div className = 'activity-first-row'>
+                                                <p id='activity-name'>{activity.name}</p>
+                                                    <div id='duration-div'>
+                                                        <p id='duration-label'>Duration (minutes): </p>
+                                                        <p id='duration'>{activity.duration}</p>
+                                                    </div>
+                                                <div id='count-div'>
+                                                    <p  id='count-label'>Count: </p>
+                                                    <p id='count'>{activity.count}</p>
+                                                </div>
+                                                
+                                            </div>
+                                            <p id='activity-description'>{activity.description}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
                         
 
 
