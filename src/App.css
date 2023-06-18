@@ -558,3 +558,13 @@ flex-direction: row;
     background-color: white;
     color: black;
   }
+
+  #thanks-main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 0px;
+    padding-bottom: 40px;
+    height: 70vh;
+  }
