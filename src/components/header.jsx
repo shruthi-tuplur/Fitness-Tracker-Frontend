@@ -37,6 +37,7 @@ const Header = (props) => {
                 <div id='nav-bar'>
                     <Link to='/'><button className="nav-bar-link" >Home</button></Link>
                    <Link to='/routines/publicroutines'><button className="nav-bar-link" >Routines</button></Link> 
+                   <button className="nav-bar-link" >Activities</button>
                    
                 </div>
             </div>
