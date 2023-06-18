@@ -2,10 +2,16 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
+<<<<<<< HEAD
 const CreateRoutine = ({ token }) => {
+=======
+const CreateRoutine = (props) => {
+    const {token, getPublicRoutines, setNewPost} = props;
+>>>>>>> 8df6fc6 (refetches public routines when user makes a post)
     const [routinePrivacy, setRoutinePrivacy] = useState(true);
     const [routineName, setRoutineName] = useState('');
     const [routineGoal, setRoutineGoal] = useState('');
+   
 
     const history = useHistory()
 
@@ -20,18 +26,22 @@ const CreateRoutine = ({ token }) => {
             
     }
 
-        const data = await fetchFromAPI({
+        const postData = await fetchFromAPI({
             path: "/routines",
             method: "POST",
             body: requestBody,
             token
         });
 
-        console.log(data);
+    
+
+        if(postData){
         setRoutineName('');
         setRoutineGoal('');
+        await getPublicRoutines();
         history.push('/routines/publicroutines');
-
+        setNewPost(postData);
+    }
     }
 
     return(

@@ -6,13 +6,12 @@ import { CreateRoutine } from './index';
 const PublicRoutines = (props) => {
     const {token} = props;
     const [routines, setRoutines] = useState([]);
+    const [newPost, setNewPost] = useState({});
 
     const getPublicRoutines = async () => {
 
         // fetches posts from API
         let data = await fetchFromAPI({path: '/routines'});  
-        data.splice(6, 1)
-        data.splice(8, 1)
         setRoutines(data)
         console.log(data)
     }
@@ -80,7 +79,7 @@ if(token){
     }
     </div>
     <div id='create-routine-div'>
-        <CreateRoutine token={token}/>
+        <CreateRoutine setNewPost = {setNewPost} token={token} getPublicRoutines={getPublicRoutines}/>
     </div>
 </div>
 )

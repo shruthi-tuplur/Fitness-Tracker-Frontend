@@ -41,6 +41,7 @@ const Register = ({setToken, setUser}) => {
                 setPassword('');
                 setToken(token);
                 setUser(user);
+                localStorage.setItem("token", token)
 
                 history.push('/thankyou');
             }
