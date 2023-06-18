@@ -2,8 +2,7 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
-const CreateRoutine = (props) => {
-    const {token} = props;
+const CreateRoutine = ({ token }) => {
     const [routinePrivacy, setRoutinePrivacy] = useState(true);
     const [routineName, setRoutineName] = useState('');
     const [routineGoal, setRoutineGoal] = useState('');
@@ -25,7 +24,7 @@ const CreateRoutine = (props) => {
             path: "/routines",
             method: "POST",
             body: requestBody,
-            token: token,
+            token
         });
 
         console.log(data);

@@ -34,7 +34,7 @@ function App() {
     // fetchActivities();
     if(token){
       console.log('token: ', token);
-      setToken(localStorage.getItem('token'));
+      // setToken(localStorage.getItem('token'));
     }
     
 }, [token])
@@ -55,7 +55,7 @@ function App() {
           <Login setToken = {setToken} setUser = {setUser}/>
         </Route>
         <Route path = '/routines/publicroutines'>
-          <PublicRoutines token={token} />
+          <PublicRoutines token={ token } />
         </Route>
         <Route path='/thankyou'>
           <ThankYouForRegistering />

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { fetchFromAPI } from "../api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import CreateRoutine from './create-routine'
+import { CreateRoutine } from './index';
 
 const PublicRoutines = (props) => {
     const {token} = props;
