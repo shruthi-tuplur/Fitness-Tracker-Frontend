@@ -7,7 +7,8 @@ import {
   Header,
   Login,
   Register,
-  PublicRoutines
+  PublicRoutines,
+  Footer
 } from './components'
 
 import { fetchFromAPI } from './api';
@@ -42,7 +43,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header token = {token}/>
         <Route exact path='/'>
           <DefaultHomepage />
         </Route>
@@ -55,6 +56,7 @@ function App() {
         <Route path = '/routines/publicroutines'>
           <PublicRoutines />
         </Route>
+        <Footer />
       </div>
     </BrowserRouter>
   );

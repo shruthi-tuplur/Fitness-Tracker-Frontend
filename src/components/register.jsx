@@ -18,8 +18,8 @@ const Register = (props) => {
 
         const requestBody = {
             user: {
-                username,
-                password
+                'username': username,
+                'password': password
             }
     }
 
@@ -31,7 +31,7 @@ const Register = (props) => {
 
         console.log("data: ", data);
 
-        const { token } = data;
+       /* const { token } = data;
         if (token){
             const data = await fetchFromAPI({
                 path: "/users/me",
@@ -48,6 +48,7 @@ const Register = (props) => {
                 history.push('/')
             }
         }
+        */
         /*
         setUsername(username);
         setPassword(password);
@@ -80,13 +81,13 @@ return (
                    
                         <label htmlFor='password'  className='login-label' >Password </label>
                         <input required type='password' name='password' onChange ={(event) => {
-                            unconfirmedPassword = event.target.value;
+                            setPassword(event.target.value)
                             }}></input>
                   
                         <label htmlFor='confirm-password'  className='login-label' id="confirm-password" >Confirm password </label>
                         <input required type='password' name='confirm-password' onChange ={(event) => {
                             if(event.target.value === unconfirmedPassword){
-                                setPassword(event.target.value)
+                                
                             }
                             }}></input>    
                       

@@ -25,6 +25,7 @@ const PublicRoutines = () => {
 return (
     <div id='public-routines-main-div'>
         <div id='public-routines-left'>
+         <h1 id='public-routines-header'>Public Routines</h1>   
         {routines.map(routine => {
             return(
                 <div key={routine.id} className = 'routine'>
@@ -41,8 +42,8 @@ return (
                         <div id='routine-activities-div'>
                             
                             <p id='activities-sec-header'>Activities</p>
-                            {
-                                routine.activities.map(activity => {
+                            {(routine.activities.length)
+                            ? routine.activities.map(activity => {
                                     return(
                                         <div key={activity.id} className = 'activity-card'>
                                             <div className = 'activity-first-row'>
@@ -60,7 +61,9 @@ return (
                                             <p id='activity-description'>{activity.description}</p>
                                         </div>
                                     )
+                              
                                 })
+                            : <div><p id='no-activities-to-show'>No activities to show at this time</p></div>      
                             }
                         </div>
                         
