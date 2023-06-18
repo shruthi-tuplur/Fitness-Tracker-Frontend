@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { fetchFromAPI } from "../api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import CreateRoutine from './create-routine'
 
-const PublicRoutines = () => {
+const PublicRoutines = (props) => {
+    const {token} = props;
     const [routines, setRoutines] = useState([]);
 
     const getPublicRoutines = async () => {
@@ -21,6 +23,68 @@ const PublicRoutines = () => {
         getPublicRoutines();
         
     }, [] )
+
+if(token){
+    return(
+    <div id='public-routines-main-div'>
+    <div id='public-routines-left'>
+     <h1 id='public-routines-header'>Public Routines</h1>   
+    {routines.map(routine => {
+        return(
+            <div key={routine.id} className = 'routine'>
+                    <p id='routine-title'>{routine.name}</p>
+                    <div id='creator-name-div'>
+                        <p id='creator-name'>{routine.creatorName}</p>
+                        <p id='routine-creator-label'>Routine creator</p>
+                        </div>
+
+                    <div id='routine-goal-div'>
+                        <p id='routine-goal-label'>Goal: </p>
+                        <p id='routine-goal'>{routine.goal}</p>
+                    </div>
+                    <div id='routine-activities-div'>
+                        
+                        <p id='activities-sec-header'>Activities</p>
+                        {(routine.activities.length)
+                        ? routine.activities.map(activity => {
+                                return(
+                                    <div key={activity.id} className = 'activity-card'>
+                                        <div className = 'activity-first-row'>
+                                            <p id='activity-name'>{activity.name}</p>
+                                                <div id='duration-div'>
+                                                    <p id='duration-label'>Duration (minutes): </p>
+                                                    <p id='duration'>{activity.duration}</p>
+                                                </div>
+                                            <div id='count-div'>
+                                                <p  id='count-label'>Count: </p>
+                                                <p id='count'>{activity.count}</p>
+                                            </div>
+                                            
+                                        </div>
+                                        <p id='activity-description'>{activity.description}</p>
+                                    </div>
+                                )
+                          
+                            })
+                        : <div><p id='no-activities-to-show'>No activities to show at this time</p></div>      
+                        }
+                    </div>
+                    
+
+
+            </div>
+
+        )
+
+    })
+    }
+    </div>
+    <div id='create-routine-div'>
+        <CreateRoutine />
+    </div>
+</div>
+)
+} else {
 
 return (
     <div id='public-routines-main-div'>
@@ -84,7 +148,7 @@ return (
 )
 
 
-
+}
 
 }
 export default PublicRoutines;

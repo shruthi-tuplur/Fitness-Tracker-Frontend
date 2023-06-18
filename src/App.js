@@ -55,7 +55,7 @@ function App() {
           <Login setToken = {setToken} setUser = {setUser}/>
         </Route>
         <Route path = '/routines/publicroutines'>
-          <PublicRoutines />
+          <PublicRoutines token={token} />
         </Route>
         <Footer />
       </div>
