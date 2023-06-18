@@ -12,6 +12,7 @@ const PublicRoutines = (props) => {
 
         // fetches posts from API
         let data = await fetchFromAPI({path: '/routines'});  
+        
         setRoutines(data)
         console.log(data)
     }
