@@ -80,7 +80,7 @@ if(token){
     }
     </div>
     <div id='create-routine-div'>
-        <CreateRoutine />
+        <CreateRoutine token={token}/>
     </div>
 </div>
 )

@@ -12,7 +12,6 @@ import {
   ThankYouForRegistering
 } from './components'
 
-import { fetchFromAPI } from './api';
 
 function App() {
   const [token, setToken] = useState(null);
