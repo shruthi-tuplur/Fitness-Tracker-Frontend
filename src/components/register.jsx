@@ -7,6 +7,7 @@ const Register = ({setToken, setUser}) => {
 
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
+    const history = useHistory();
     let unconfirmedPassword;
 
 
@@ -25,7 +26,25 @@ const Register = ({setToken, setUser}) => {
             body: requestBody,
         });
 
-        console.log("data: ", data);   
+        console.log("data: ", data);
+        
+        const { token } = data;
+        if (token) {
+            const data = await fetchFromAPI({
+                path: "/users/me",
+                token
+            })
+
+            const user = data;
+            if (token) {
+                setUsername('');
+                setPassword('');
+                setToken(token);
+                setUser(user);
+
+                history.push('/');
+            }
+        }
     }
  
 return (

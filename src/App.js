@@ -31,12 +31,13 @@ function App() {
   // }
 
   useEffect(() => {
+    // fetchActivities();
     if(token){
-        console.log('token: ', token)
-      //setToken(localStorage.getItem('token'))
+      console.log('token: ', token);
+      setToken(localStorage.getItem('token'));
     }
     
-}, [token])     
+}, [token])
 
 
 
@@ -51,7 +52,7 @@ function App() {
           <Register setToken = {setToken} setUser = {setUser}/>
         </Route>
         <Route path = '/users/login'>
-          <Login />
+          <Login setToken = {setToken} setUser = {setUser}/>
         </Route>
         <Route path = '/routines/publicroutines'>
           <PublicRoutines />

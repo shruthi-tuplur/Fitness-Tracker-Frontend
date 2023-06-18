@@ -1,18 +1,59 @@
-import React from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchFromAPI } from "../api";
 
-const Login = () => {
+const Login = ({setToken, setUser}) => {
+
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const history = useHistory();
+
+    const handleSubmit = async (event) => {
+
+        event.preventDefault()
+
+        const requestBody = { 
+            username,
+            password 
+    }
+
+        const data = await fetchFromAPI({
+            path: "/users/login",
+            method: "POST",
+            body: requestBody,
+        });
+
+        console.log("data: ", data);   
+
+        const { token } = data;
+        if (token) {
+            const data = await fetchFromAPI({
+                path: "/users/me",
+                token
+            })
+
+            const user = data;
+            if (token) {
+                setUsername('');
+                setPassword('');
+                setToken(token);
+                setUser(user);
+
+                history.push('/');
+            }
+        }
+    }
 
 return(
 
     <div>
         <div id='login-main-div'>
-        <form>
+        <form onSubmit={handleSubmit}>
            <h2 id='login-page-header'>Login</h2> 
            <div id='username'>
            <label htmlFor='username'  className='login-label' >Username </label>
                     <input required type='text' name='username' onChange ={(event) => {
-                        console.log('')
+                        setUsername(event.target.value)
                         }}></input>
             
            </div>
@@ -20,7 +61,7 @@ return(
                    
                         <label htmlFor='password'  className='login-label' >Password </label>
                         <input required type='password' name='password' onChange ={(event) => {
-                            console.log('')
+                            setPassword(event.target.value)
                             }}></input>
                   
                     
