@@ -440,3 +440,21 @@ flex-direction: row;
   font-size: 40px;
   margin-top: 0px;
 }
+
+#logout-button{
+  margin-right: 60px;
+  font-weight: 700;
+  margin-top: 45px;
+  background-color: white;
+  border:none;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  height: 30px;
+  width: 100px;
+}
+
+#logout-button:hover{
+  border-radius: 20px;
+  background-color:rgb(227, 227, 227)
+  
+  }

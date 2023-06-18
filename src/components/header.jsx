@@ -10,7 +10,7 @@ const Header = (props) => {
             <div id='header-main-div'>
                 <div id='header-top-row'>
                     <Link to='/'><h1 id='site-main-logo'>FITNESSTRAC.KR</h1></Link>
-                    <Link to='/users/register'><button id="login-link">Hi! Log in or sign up</button></Link>
+                    <button id="logout-button">Logout</button>
                 </div>
                 <div id='nav-bar'>
                 <Link to='/'><button className="nav-bar-link" >Home</button></Link>

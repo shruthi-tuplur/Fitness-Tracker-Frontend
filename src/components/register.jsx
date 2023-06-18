@@ -41,7 +41,7 @@ const Register = ({setToken, setUser}) => {
                 setPassword('');
                 setToken(token);
                 setUser(user);
-
+                
                 history.push('/');
             }
         }
