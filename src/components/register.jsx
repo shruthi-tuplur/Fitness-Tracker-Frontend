@@ -3,12 +3,10 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
 
-const Register = (props) => {
+const Register = ({setToken, setUser}) => {
 
-    const {setToken, setUser} = props;
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const history = useHistory()
     let unconfirmedPassword;
 
 
@@ -16,49 +14,18 @@ const Register = (props) => {
 
         event.preventDefault()
 
-        const requestBody = {
-            user: {
-                'username': username,
-                'password': password
-            }
+        const requestBody = { 
+            username,
+            password 
     }
 
         const data = await fetchFromAPI({
             path: "/users/register",
             method: "POST",
             body: requestBody,
-        })
-
-        console.log("data: ", data);
-
-       /* const { token } = data;
-        if (token){
-            const data = await fetchFromAPI({
-                path: "/users/me",
-                token
-            })
-
-            const user = data;
-            if (token) {
-                setUsername('');
-                setPassword('');
-                setToken(token);
-                setUser(user);
-
-                history.push('/')
-            }
-        }
-        */
-        /*
-        setUsername(username);
-        setPassword(password);
-        const registerNewUser = await fetchFromAPI({
-            
         });
-        */ 
-        //setToken(registerNewUser.data.token)
-        
-        
+
+        console.log("data: ", data);   
     }
  
 return (
