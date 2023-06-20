@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const Header = (props) => {
-    const {token, setToken} = props;
+    const {token, setToken, logout} = props;
 
     const history = useHistory()
     
@@ -14,7 +14,7 @@ const Header = (props) => {
                     <Link to='/'><h1 id='site-main-logo'>FITNESSTRAC.KR</h1></Link>
                     <button id="logout-button" onClick={(event) => {
                         event.preventDefault();
-                        setToken(null);
+                        logout();
                         history.push('/');
                     }}>Logout</button>
                 </div>

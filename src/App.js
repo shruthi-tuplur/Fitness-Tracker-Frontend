@@ -36,11 +36,17 @@ function App() {
 
   }
 
+  const logout = () => {
+    setToken('');
+    setUser('');
+    localStorage.removeItem("token");
+  }
+
   useEffect(() => {
     fetchActivities();
     if(token){
       console.log('token: ', token);
-      // setToken(localStorage.getItem('token'));
+      setToken(localStorage.getItem('token'));
     }
     
 }, [token])
@@ -50,7 +56,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header token = {token} setToken={setToken}/>
+        <Header token = {token} setToken={setToken} logout={logout}/>
         <Route exact path='/'>
           <DefaultHomepage token={token}/>
         </Route>
