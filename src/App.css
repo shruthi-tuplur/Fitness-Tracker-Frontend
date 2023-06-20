@@ -643,3 +643,43 @@ flex-direction: row;
     flex-direction: column;
     width: 60vw;
   }
+
+  #main-activities-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 50px;
+  }
+
+  #activity-div-activities{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    width: 60vw;
+    margin-bottom: 40px;
+  }
+
+  #activity-title-div-activities{
+    display: flex;
+    border-bottom: solid 1px black;
+    padding-left: 15px;
+  }
+
+  .activity-label-activities{
+    font-weight: 700;
+    margin-right: 10px;
+    
+  }
+
+  #activity-desc-div-activities{
+    display: flex;
+    padding-left: 15px;
+  }
+
+  #activities-header{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 40px;
+    margin-top: 0px;
+  }

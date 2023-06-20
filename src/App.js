@@ -13,6 +13,7 @@ import {
   MyRoutines,
   Activities
 } from './components'
+import {fetchFromAPI} from './api'
 
 
 function App() {
@@ -21,20 +22,20 @@ function App() {
   const [activities, setActivities] = useState([]);
   const [username, setUsername] = useState("");
   
-  // const fetchActivities = async() => {
-  //   const data = await fetchFromAPI({
-  //     path: '/activities',
-  //     token
-  //   })
+  const fetchActivities = async() => {
+    const data = await fetchFromAPI({
+     path: '/activities',
+      token
+   })
 
-  //   if(data?.activities){
-  //     setActivities(data.activities);
-  //   }
+    if(data){
+      setActivities(data);
+    }
 
-  // }
+  }
 
   useEffect(() => {
-    // fetchActivities();
+    fetchActivities();
     if(token){
       console.log('token: ', token);
       // setToken(localStorage.getItem('token'));
@@ -67,7 +68,7 @@ function App() {
           <MyRoutines token={token} user={user}/>
         </Route>
         <Route path='/activities'>
-          <Activities/>
+          <Activities fetchActivities={fetchActivities} token={token} setActivities={setActivities} activities={activities}/>
         </Route>
 
         <Footer />
