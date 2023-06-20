@@ -7,4 +7,5 @@ export {default as CreateRoutine} from './create-routine';
 export {default as ThankYouForRegistering} from './thank-you-for-registering';
 export {default as MyRoutines} from './my-routines';
 export {default as Activities} from './activities';
-export { default as DeleteRoutine } from './Delete';
+export { default as DeleteRoutine } from './DeleteRoutine';
+export { default as DeleteActivity } from './DeleteActivity';
