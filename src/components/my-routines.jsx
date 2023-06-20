@@ -75,8 +75,13 @@ const history = useHistory();
 return(
     <div id='my-routines-main-div'>
  <div id='public-routines-left'>
-     <h1 id='my-routines-header'>My Routines</h1>   
-    {routines.map(routine => {
+     <h1 id='my-routines-header'>My Routines</h1>
+
+    { (routines.length === 0) 
+    ? (<div>
+        <p>No Routines To Show</p>
+    </div>)
+    : routines.map(routine => {
 
         return(
             <div key={routine.id} className = 'my-routine'>
@@ -196,7 +201,7 @@ return(
         )
 
     })
-    }
+    } 
     </div>
     </div>
 
