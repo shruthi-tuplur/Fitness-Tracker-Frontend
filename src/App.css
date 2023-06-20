@@ -298,14 +298,15 @@ text-decoration: none;
 }
 
 #routine-goal-div{
-  margin-top: 0px;
+  
   margin-bottom: 0px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 10px;
+  padding-bottom: 5px;
   padding-left: 5px;
   display: flex;
   border-top: solid 1px lightgray;
   border-bottom: solid 1px lightgray;
+  justify-content: space-between;
 }
 
 #routine-goal-label{
@@ -377,12 +378,15 @@ flex-direction: row;
 
 #duration-div{
   display: flex;
+  flex-direction: column;
   margin-right: 50px;
   margin-left: 20px;
 }
 
 #count-div{
   display: flex;
+  flex-direction: column;
+  margin-left: 15px;
 }
 
 #duration-label{
@@ -723,3 +727,114 @@ flex-direction: row;
   #add-activity-main{
     margin-top: 20px;
   }
+
+  #routine-title-div{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(202, 202, 202);
+
+  }
+
+  .edit-button-routine-title{
+    background-color: rgb(202, 202, 202);
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-right: 10px;
+  }
+
+  .edit-button-routine-title:hover{
+   text-decoration: underline;
+   
+  }
+
+  .delete-button-routine-title{
+    background-color: rgb(202, 202, 202);
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-right: 10px;
+  }
+
+  .delete-button-routine-title:hover{
+    text-decoration: underline;
+   
+  }
+
+  #edit-and-delete-buttons{
+    padding-top: 8px;
+  }
+
+  .edit-button-routine-goal{
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-right: 10px;
+    background-color: white;
+   
+  }
+
+  .edit-button-routine-goal:hover{
+    text-decoration: underline;
+    
+   }
+
+   #edit-button-goal-div{
+    height: 20px;
+   }
+
+   #routine-goal-name-div{
+    display: flex;
+   }
+
+   .edit-button-duration{
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-right: 10px;
+    background-color: white;
+   
+  }
+
+  .edit-button-duration:hover{
+    text-decoration: underline;
+    
+   }
+
+   #my-activity-duration-content{
+    display: flex;
+    margin-left: 5px;
+   }
+
+   .edit-button-count{
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-right: 10px;
+    background-color: white;
+    margin-left: 2px; 
+   
+  }
+
+  .edit-button-count:hover{
+    text-decoration: underline;
+    
+   }
+
+   #my-activity-count-content{
+    display: flex;
+    margin-left: 5px;
+   }
+
+   .delete-activity-button{
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-right: 12px;
+    background-color: white;
+    margin-bottom: 10px;
+   }
+
+   .delete-activity-button:hover{
+    text-decoration: underline;
+    
+   }
+
+   #delete-activity-button-div{
+    display: flex;
+    justify-content: flex-end;
+   }

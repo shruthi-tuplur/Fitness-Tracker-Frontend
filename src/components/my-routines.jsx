@@ -33,15 +33,26 @@ return(
 
         return(
             <div key={routine.id} className = 'my-routine'>
-                    <p id='routine-title'>{routine.name}</p>
+                    <div id='routine-title-div'>
+                        <p id='routine-title'>{routine.name}</p>
+                        <div id='edit-and-delete-buttons'>
+                            <button className="edit-button-routine-title">✎ Edit routine name </button>
+                            <button className="delete-button-routine-title">Delete routine </button>
+                        </div>
+                    </div>
                     <div id='creator-name-div'>
                         <p id='creator-name'>{routine.creatorName}</p>
                         <p id='routine-creator-label'>Routine creator</p>
                         </div>
 
                     <div id='routine-goal-div'>
+                        <div id='routine-goal-name-div'>
                         <p id='routine-goal-label'>Goal: </p>
                         <p id='routine-goal'>{routine.goal}</p>
+                        </div>
+                        <div id='edit-button-goal-div'>
+                            <button className="edit-button-routine-goal"> Edit routine goal </button>
+                        </div>    
                     </div>
                     <div id='routine-activities-div'>
                         
@@ -56,17 +67,30 @@ return(
                                                 <p id='activity-name'>{activity.name}</p>
                                             </div>
                                                 <div id='duration-div'>
-                                                    <p id='duration-label'>Duration (minutes): </p>
-                                                    <p id='duration'>{activity.duration}</p>
+                                                    <div id='my-activity-duration-content'>
+                                                        <p id='duration-label'>Duration (minutes): </p>
+                                                        <p id='duration'>{activity.duration}</p>
+                                                    </div>
+                                                    <div>
+                                                     <button className="edit-button-duration"> Edit duration </button>
+                                                    </div>    
                                                 </div>
                                             <div id='count-div'>
+                                            <div id='my-activity-count-content'>
                                                 <p  id='count-label'>Count: </p>
                                                 <p id='count'>{activity.count}</p>
+                                            </div>
+                                             <div>
+                                                <button className="edit-button-count"> Edit count </button>
+                                            </div>    
                                             </div>
                                             
                                         </div>
                                         <p id='my-activity-description'>Description: </p>
                                         <p id='activity-description'>{activity.description}</p>
+                                        <div id='delete-activity-button-div'>
+                                        <button className="delete-activity-button"> Delete activity </button>
+                                        </div>
                                     </div>
                                 )
                           
