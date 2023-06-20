@@ -18,7 +18,7 @@ import {fetchFromAPI} from './api'
 
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") ?? "");
   const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
   const [username, setUsername] = useState("");
@@ -34,19 +34,32 @@ function App() {
       setActivities(data);
     }
 
+    // if (token && !user) {
+    //   const data = await fetchFromAPI({
+    //     path: '/users/me',
+    //     token
+    //   });
+    //   if (data.user) {
+    //     setUser(data.user);
+    //   }
+    // }
+
   }
 
   const logout = () => {
     setToken('');
     setUser('');
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
   }
 
   useEffect(() => {
+    token !== ""
+      ? localStorage.setItem('token', token)
+      : localStorage.removeItem("token");
     fetchActivities();
     if(token){
       console.log('token: ', token);
-      setToken(localStorage.getItem('token'));
     }
     
 }, [token])

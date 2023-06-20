@@ -38,7 +38,6 @@ const Login = ({setToken, setUser, setUsername, username}) => {
                 setPassword('');
                 setToken(token);
                 setUser(user);
-                localStorage.setItem("token", token)
                 history.push('/');
             }
         }
