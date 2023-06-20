@@ -1,27 +1,19 @@
 import React, {useState} from "react";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import {useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
-const AddActivity = ({token}) => {
+const AddActivity = ({token, routineId, getMyRoutines}) => {
     const [newRoutineActivityName, setNewRoutineActivityName] = useState('');
     const [newRoutineActivityDuration, setNewRoutineActivityDuration] = useState('');
     const [newRoutineActivityCount, setNewRoutineActivityCount] = useState('');
     const [newRoutineActivityDesc, setNewRoutineActivityDesc] = useState('');
 
-    const params = useParams();
-
-    const {routineId} = params;
-
-    const handleSubmit= async() => {
-        let newActivity = {
-            name: newRoutineActivityName,
-            description: newRoutineActivityDesc,
-            count: newRoutineActivityCount,
-            duration: newRoutineActivityDuration
+    const history = useHistory();
 
 
-        }
 
+    const handleSubmit= async(event) => {
+        event.preventDefault();
 
         const requestBody = { 
             name: newRoutineActivityName,
@@ -37,11 +29,26 @@ const AddActivity = ({token}) => {
         });
 
         // attach it to the routine
+        const secondBody = {
+            activityId: activityData.id,
+            count: newRoutineActivityCount,
+            duration: newRoutineActivityDuration
+        }
+
+        const attachingActivities = await fetchFromAPI({
+            path: `/routines/${routineId}/activities`,
+            method: "POST",
+            body: secondBody
+        });
+
+        console.log(attachingActivities);
 
         setNewRoutineActivityName('');
         setNewRoutineActivityCount('');
         setNewRoutineActivityDesc('');
-        setNewRoutineActivityDesc('')
+        setNewRoutineActivityDuration('')
+        history.push('/routines/myroutines')
+        await getMyRoutines()
 
         
 
@@ -50,7 +57,7 @@ const AddActivity = ({token}) => {
     }
     return(
         <div id='add-activity-main'>
-            <form>
+            <form onSubmit={handleSubmit}>
            <label className="new-activity-label" htmlFor="new-routine-activity">Add an activity </label>
            <div id='add-activity-top-row'>
             <div className="activity-pair">

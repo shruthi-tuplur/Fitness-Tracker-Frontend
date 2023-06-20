@@ -602,6 +602,7 @@ flex-direction: row;
     margin-top: 20px;
     font-size: 14px;
     margin-left: 0px;
+    margin-bottom: 10px;
   }
 
   #create-new-activity-button-div{
@@ -643,7 +644,7 @@ flex-direction: row;
     margin-bottom: 60px;
     flex-direction: column;
     width: 60vw;
-    height: 550px;
+    min-height: 600px;
   }
 
   #main-activities-div{
@@ -702,4 +703,23 @@ flex-direction: row;
 
   #activity-description-box{
     width: 600px;
+  }
+
+  #my-activity-description{
+    margin-left: 5px;
+    font-weight: 700;
+  }
+
+  #activity-title-div{
+    width: 400px;
+    display: flex;
+    margin-left: 5px;
+  }
+
+  #activity-name{
+    width: 200px;
+  }
+
+  #add-activity-main{
+    margin-top: 20px;
   }

@@ -51,7 +51,10 @@ return(
                                 return(
                                     <div key={activity.id} className = 'activity-card'>
                                         <div className = 'activity-first-row'>
-                                            <p id='activity-name'>{activity.name}</p>
+                                            <div id='activity-title-div'>
+                                                <p id='duration-label'>Activity name: </p>
+                                                <p id='activity-name'>{activity.name}</p>
+                                            </div>
                                                 <div id='duration-div'>
                                                     <p id='duration-label'>Duration (minutes): </p>
                                                     <p id='duration'>{activity.duration}</p>
@@ -62,6 +65,7 @@ return(
                                             </div>
                                             
                                         </div>
+                                        <p id='my-activity-description'>Description: </p>
                                         <p id='activity-description'>{activity.description}</p>
                                     </div>
                                 )
@@ -70,7 +74,7 @@ return(
                         : <div><p id='no-activities-to-show'>No activities to show at this time</p></div>      
                         }
                     </div>
-                    <AddActivity token={token}/>
+                    <AddActivity token={token} routineId={routine.id} getMyRoutines={getMyRoutines}/>
             </div>
 
         )
