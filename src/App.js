@@ -1,7 +1,7 @@
 
 import './App.css';
 import DefaultHomepage from './components/app-default-home';
-import { BrowserRouter, Route, Link, Switch} from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import {
   Header,
@@ -34,15 +34,19 @@ function App() {
       setActivities(data);
     }
 
-    // if (token && !user) {
-    //   const data = await fetchFromAPI({
-    //     path: '/users/me',
-    //     token
-    //   });
-    //   if (data.user) {
-    //     setUser(data.user);
-    //   }
-    // }
+    if (token && !user) {
+      const data = await fetchFromAPI({
+        path: '/users/me',
+        token
+      });
+
+      console.log("token && !user data: ", data);
+
+      if (token) {
+        setUser(data);
+        console.log("The user has been set", data);
+      }
+    }
 
   }
 
@@ -50,17 +54,16 @@ function App() {
     setToken('');
     setUser('');
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
   }
 
   useEffect(() => {
-    token !== ""
-      ? localStorage.setItem('token', token)
-      : localStorage.removeItem("token");
+      if(token){
+        localStorage.setItem('token', token)
+        console.log('token: ', token);
+      } else {
+        localStorage.removeItem("token");
+      }
     fetchActivities();
-    if(token){
-      console.log('token: ', token);
-    }
     
 }, [token])
 
@@ -77,7 +80,7 @@ function App() {
           <Register setToken = {setToken} setUser = {setUser} setUsername={setUsername}/>
         </Route>
         <Route path = '/users/login'>
-          <Login setToken = {setToken} setUser = {setUser} setUsername={setUsername} username = {username}/>
+          <Login setToken = {setToken} setUser = {setUser} setUsername={setUsername} username = {username} user={user}/>
         </Route>
         <Route path = '/routines/publicroutines'>
           <PublicRoutines token={ token } />

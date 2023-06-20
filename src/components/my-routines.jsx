@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { fetchFromAPI } from "../api";
 import AddActivity from "./add-activity-to-routine";
 import DeleteRoutine from "./Delete";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const MyRoutines = (props) => {
 const {token, user} = props;
