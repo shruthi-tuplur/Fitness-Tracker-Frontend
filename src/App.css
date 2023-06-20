@@ -463,7 +463,7 @@ flex-direction: row;
     display: flex;
     flex-direction: column;
     border: solid 1px black;
-    height: 400px;
+    min-height: 800px;
     width: 300px;
     margin-top: 80px;
     font-family: 'Noto Sans', sans-serif;
@@ -567,4 +567,79 @@ flex-direction: row;
     margin-top: 0px;
     padding-bottom: 40px;
     height: 70vh;
+  }
+
+  #new-routine-activity-div{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .new-activity-label{
+    color: rgb(93, 93, 93);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  #activity-desc-label{
+    color: rgb(93, 93, 93);
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  #add-activity-button{
+    background-color: black;
+    color:white;
+    font-family: 'Noto Sans', sans-serif;
+    border:none;
+    border-radius: 20px;
+    height: 30px;
+    width: 250px;
+    margin-top: 20px;
+    font-size: 14px;
+    margin-left: 15px;
+  }
+
+  #create-new-activity-button-div{
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  #add-activity-button:hover{
+    background-color: white;
+    color: black;
+    border: solid 2px black;
+  }
+
+  #activity-input-box{
+    margin-bottom: 15px;
+  }
+
+  #my-routines-main-div{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+  }
+
+  #my-routines-header{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 40px;
+    margin-top: 0px;
+  }
+
+  .my-routine{
+    display: flex;
+    flex: column;
+   
+    border: solid 1px black;
+    margin-bottom: 60px;
+    flex-direction: column;
+    width: 60vw;
   }

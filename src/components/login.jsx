@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
-const Login = ({setToken, setUser}) => {
+const Login = ({setToken, setUser, setUsername, username}) => {
 
     const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
+    
     const history = useHistory();
 
     const handleSubmit = async (event) => {

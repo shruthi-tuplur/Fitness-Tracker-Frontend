@@ -3,10 +3,9 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
 
-const Register = ({setToken, setUser}) => {
+const Register = ({setToken, setUser, username, setUsername}) => {
 
     const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
     const history = useHistory();
     let unconfirmedPassword;
 

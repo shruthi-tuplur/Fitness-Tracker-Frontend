@@ -9,7 +9,9 @@ import {
   Register,
   PublicRoutines,
   Footer,
-  ThankYouForRegistering
+  ThankYouForRegistering,
+  MyRoutines,
+  Activities
 } from './components'
 
 
@@ -17,6 +19,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
+  const [username, setUsername] = useState("");
   
   // const fetchActivities = async() => {
   //   const data = await fetchFromAPI({
@@ -49,16 +52,22 @@ function App() {
           <DefaultHomepage />
         </Route>
         <Route path = '/users/register'>
-          <Register setToken = {setToken} setUser = {setUser}/>
+          <Register setToken = {setToken} setUser = {setUser} setUsername={setUsername}/>
         </Route>
         <Route path = '/users/login'>
-          <Login setToken = {setToken} setUser = {setUser}/>
+          <Login setToken = {setToken} setUser = {setUser} setUsername={setUsername} username = {username}/>
         </Route>
         <Route path = '/routines/publicroutines'>
           <PublicRoutines token={ token } />
         </Route>
         <Route path='/thankyou'>
           <ThankYouForRegistering />
+        </Route>
+        <Route path='/routines/myroutines'>
+          <MyRoutines token={token} user={user}/>
+        </Route>
+        <Route path='/activities'>
+          <Activities/>
         </Route>
 
         <Footer />
