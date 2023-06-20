@@ -50,7 +50,7 @@ function App() {
       <div className="App">
         <Header token = {token} setToken={setToken}/>
         <Route exact path='/'>
-          <DefaultHomepage />
+          <DefaultHomepage token={token}/>
         </Route>
         <Route path = '/users/register'>
           <Register setToken = {setToken} setUser = {setUser} setUsername={setUsername}/>
