@@ -855,3 +855,15 @@ flex-direction: row;
     background-color: black;
     color: white;
    }
+
+   #done-editing-routine-goal-button{
+    background-color: white;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-left: 5px;
+   }
+
+   #done-editing-routine-goal-button:hover{
+    background-color: black;
+    color: white;
+   }

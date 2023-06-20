@@ -8,7 +8,8 @@ const {token, user} = props;
 const [routines, setRoutines] = useState([])
 const [isEditingRoutineName, setIsEditingRoutineName] = useState(false)
 const [newRoutineName, setNewRoutineName] = useState('')
-const [isEditingRoutineGoal, isEditingRoutineGoal] = useState(false);
+const [isEditingRoutineGoal, setIsEditingRoutineGoal] = useState(false);
+const [newRoutineGoal, setNewRoutineGoal] = useState('')
 
 const getMyRoutines = async () => {
     
@@ -33,6 +34,24 @@ const updateName = async(routineId) => {
     console.log(patchRequest);
     await getMyRoutines();
     setNewRoutineName('')
+    history.push('/routines/myroutines');
+    
+}
+
+const updateGoal = async(routineId) => {
+    const requestBody = {
+        goal: newRoutineGoal,
+    }
+    const patchRequest = await fetchFromAPI({
+        path:`/routines/${routineId}`,
+        method: "PATCH",
+        body: requestBody,
+        token
+    });
+
+    console.log(patchRequest);
+    await getMyRoutines();
+    setNewRoutineGoal('')
     history.push('/routines/myroutines');
     
 }
@@ -69,6 +88,10 @@ return(
                                         
                                         updateName(routine.id) 
                                     }}>Done</button>
+                                    <button id= 'done-editing-routine-name-button' onClick={(event) => {
+                                        event.preventDefault();
+                                        setIsEditingRoutineName(false);
+                                    }}>Cancel</button>
                                 </div>
                                 </div>
                             )
@@ -88,12 +111,34 @@ return(
                         </div>
 
                     <div id='routine-goal-div'>
+                        {(isEditingRoutineGoal)
+                        ? (
+                            <div>
                         <div id='routine-goal-name-div'>
                         <p id='routine-goal-label'>Goal: </p>
                         <p id='routine-goal'>{routine.goal}</p>
                         </div>
+                         <input type='text' placeholder = 'Enter new routine goal' name='new-routine-goal'  value = {newRoutineGoal} onChange = {(event) => {setNewRoutineGoal(event.target.value)}} className="new-routine-labels"></input>
+                         <button id= 'done-editing-routine-goal-button' onClick={(event) => {
+                                        event.preventDefault();
+                                        setIsEditingRoutineGoal(false);
+                                        updateGoal(routine.id) 
+                                    }}>Done</button>
+                                     <button id= 'done-editing-routine-goal-button' onClick={(event) => {
+                                        event.preventDefault();
+                                        setIsEditingRoutineGoal(false);
+                                    }}>Cancel</button>
+                        </div>
+                        )
+                        : (<div id='routine-goal-name-div'>
+                        <p id='routine-goal-label'>Goal: </p>
+                        <p id='routine-goal'>{routine.goal}</p>
+                        </div>) }
                         <div id='edit-button-goal-div'>
-                            <button className="edit-button-routine-goal"> Edit routine goal </button>
+                            <button className="edit-button-routine-goal" onClick={(event) => {
+                                event.preventDefault();
+                                setIsEditingRoutineGoal(true);
+                            }}> Edit routine goal </button>
                         </div>    
                     </div>
                     <div id='routine-activities-div'>
