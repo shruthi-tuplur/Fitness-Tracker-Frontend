@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { fetchFromAPI } from "../api";
+import AddActivity from "./add-activity-to-routine";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const MyRoutines = (props) => {
-const {token, user} = props;
+const {token, user, setCurrentSingleRoutine} = props;
 const [routines, setRoutines] = useState([])
 
 const getMyRoutines = async () => {
-    console.log('username:', user.username)
+    
     // fetches posts from API
     let data = await fetchFromAPI({path: `/users/${user.username}/routines`, token});  
     
@@ -26,6 +28,7 @@ return(
  <div id='public-routines-left'>
      <h1 id='my-routines-header'>My Routines</h1>   
     {routines.map(routine => {
+
         return(
             <div key={routine.id} className = 'my-routine'>
                     <p id='routine-title'>{routine.name}</p>
@@ -38,6 +41,10 @@ return(
                         <p id='routine-goal-label'>Goal: </p>
                         <p id='routine-goal'>{routine.goal}</p>
                     </div>
+                    <Link to={`/routines/${routine.id}/activities`} ><button id="add-activity-button" onClick={(event) => {
+                        event.preventDefault();
+                        setCurrentSingleRoutine(routine.id)
+                    }}>View or add activities</button></Link>
                     <div id='routine-activities-div'>
                         
                         <p id='activities-sec-header'>Activities</p>
@@ -65,9 +72,7 @@ return(
                         : <div><p id='no-activities-to-show'>No activities to show at this time</p></div>      
                         }
                     </div>
-                    
-
-
+                    <AddActivity token={token}/>
             </div>
 
         )

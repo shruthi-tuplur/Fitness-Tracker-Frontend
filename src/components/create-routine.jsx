@@ -6,35 +6,13 @@ const CreateRoutine = ({ token, getPublicRoutines }) => {
     const [routinePrivacy, setRoutinePrivacy] = useState(true);
     const [routineName, setRoutineName] = useState('');
     const [routineGoal, setRoutineGoal] = useState('');
-    const [newRoutineActivityName, setNewRoutineActivityName] = useState('');
-    const [newRoutineActivityDuration, setNewRoutineActivityDuration] = useState('');
-    const [newRoutineActivityCount, setNewRoutineActivityCount] = useState('');
-    const [newRoutineActivityDesc, setNewRoutineActivityDesc] = useState('');
+    
 
     const history = useHistory()
 
-    let activities = []
+    
 
-    const createActivity = () => {
-        let newActivity = {
-            name: newRoutineActivityName,
-            description: newRoutineActivityDesc,
-            count: newRoutineActivityCount,
-            duration: newRoutineActivityDuration
-
-
-        }
-
-        setNewRoutineActivityName('');
-        setNewRoutineActivityCount('');
-        setNewRoutineActivityDesc('');
-        setNewRoutineActivityDesc('');
-
-        activities.push(newActivity)
-
-
-
-    }
+   
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -55,25 +33,7 @@ const CreateRoutine = ({ token, getPublicRoutines }) => {
         });
 
 
-        if(activities){
-            activities.map(async(activity) => {
-                const myRequestBody = {
-                    name: activity.name,
-                    description: activity.description
-                }
-                const data = await fetchFromAPI({
-                    path: "/activities",
-                    method: "POST",
-                    body: myRequestBody,
-                    token
-                }) 
-
-                console.log(data)
-
-            })
-
-            activities = [];
-        }
+        
 
     
 
@@ -88,6 +48,7 @@ const CreateRoutine = ({ token, getPublicRoutines }) => {
 
     return(
         <div id='create-routine-main-div'>
+            
             <form id='new-routine-form' onSubmit={handleSubmit}>
                 <h3 id='new-routine-header'>Create a new routine</h3>
                 <div id='new-routine-name-div'>
@@ -98,23 +59,7 @@ const CreateRoutine = ({ token, getPublicRoutines }) => {
                     <label className="new-routine-label" htmlFor="new-routine-goal">Routine goal </label>
                     <input type='text' name='new-routine-goal'  value = {routineGoal} onChange = {(event) => {setRoutineGoal(event.target.value)}} className="new-routine-labels"></input>
                 </div>
-                <div id='new-routine-activity-div'>
-                    <label className="new-activity-label" htmlFor="new-routine-activity">Add an activity </label>
-                    <p id='activity-desc-label'>Activity name</p>
-                    <input type='text' name='new-routine-activity'  value = {newRoutineActivityName} onChange = {(event) => {setNewRoutineActivityName(event.target.value)}} className="new-routine-labels" id='activity-input-box'></input>
-                    <p id='activity-desc-label'>Activity duration (minutes)</p>
-                    <input type='text' name='new-routine-activity'  value = {newRoutineActivityDuration} onChange = {(event) => {setNewRoutineActivityDuration(event.target.value)}} className="new-routine-labels" id='activity-input-box'></input>
-                    <p id='activity-desc-label'>Activity count</p>
-                    <input type='text' name='new-routine-activity'  value = {newRoutineActivityCount} onChange = {(event) => {setNewRoutineActivityCount(event.target.value)}} className="new-routine-labels" id='activity-input-box'></input>
-                    <p id='activity-desc-label'>Activity description</p>
-                    <input type='text' name='new-routine-activity'  value = {newRoutineActivityDesc} onChange = {(event) => {setNewRoutineActivityDesc(event.target.value)}} className="new-routine-labels" id='activity-input-box'></input>
-                    <div id='create-new-activity-button'>
-                        <button id='add-activity-button'  onClick={(event) => {createActivity()}}>Add activity</button>
-                    </div>
-                    <div id='add-new-activity-div'> 
-
-                    </div>
-                </div>
+                
                 <div id='new-routine-priv-or-pub'>
                     <p id='private-or-public'>Would you like this routine to be public?</p>
                     <div id='pub-or-priv-buttons-div'>
