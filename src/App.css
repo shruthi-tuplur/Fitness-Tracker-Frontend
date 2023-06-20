@@ -838,3 +838,20 @@ flex-direction: row;
     display: flex;
     justify-content: flex-end;
    }
+
+   #edit-routine-name-div{
+    margin-left: 3px;
+    margin-bottom: 5px;
+   }
+
+   #done-editing-routine-name-button{
+    background-color: rgb(202, 202, 202);
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    margin-left: 5px;
+   }
+
+   #done-editing-routine-name-button:hover{
+    background-color: black;
+    color: white;
+   }

@@ -6,6 +6,9 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const MyRoutines = (props) => {
 const {token, user} = props;
 const [routines, setRoutines] = useState([])
+const [isEditingRoutineName, setIsEditingRoutineName] = useState(false)
+const [newRoutineName, setNewRoutineName] = useState('')
+const [isEditingRoutineGoal, isEditingRoutineGoal] = useState(false);
 
 const getMyRoutines = async () => {
     
@@ -15,6 +18,26 @@ const getMyRoutines = async () => {
     setRoutines(data)
     console.log(data)
 }
+
+const updateName = async(routineId) => {
+    const requestBody = {
+        name: newRoutineName,
+    }
+    const patchRequest = await fetchFromAPI({
+        path:`/routines/${routineId}`,
+        method: "PATCH",
+        body: requestBody,
+        token
+    });
+
+    console.log(patchRequest);
+    await getMyRoutines();
+    setNewRoutineName('')
+    history.push('/routines/myroutines');
+    
+}
+
+
 
 useEffect(() => {
 
@@ -34,10 +57,29 @@ return(
         return(
             <div key={routine.id} className = 'my-routine'>
                     <div id='routine-title-div'>
-                        <p id='routine-title'>{routine.name}</p>
+                        
+                        {(isEditingRoutineName)
+                            ? (<div id='routine-title-plus-editing-div'>
+                                    <p id='routine-title'>{routine.name}</p>
+                                <div id='edit-routine-name-div'>
+                                    <input placeholder='Enter new routine name' type='text' name='new-routine-name'  value={newRoutineName} onChange = {(event) => {setNewRoutineName(event.target.value)}} className="new-routine-labels"></input>
+                                    <button id= 'done-editing-routine-name-button' onClick={(event) => {
+                                        event.preventDefault();
+                                        setIsEditingRoutineName(false);
+                                        
+                                        updateName(routine.id) 
+                                    }}>Done</button>
+                                </div>
+                                </div>
+                            )
+                            : <p id='routine-title'>{routine.name}</p> }
                         <div id='edit-and-delete-buttons'>
-                            <button className="edit-button-routine-title">✎ Edit routine name </button>
+                            <button className="edit-button-routine-title" onClick={(event) => {
+                                event.preventDefault()
+                                setIsEditingRoutineName(true);
+                            }}>✎ Edit routine name </button>
                             <button className="delete-button-routine-title">Delete routine </button>
+                           
                         </div>
                     </div>
                     <div id='creator-name-div'>
