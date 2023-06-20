@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { fetchFromAPI } from "../api";
 import AddActivity from "./add-activity-to-routine";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const MyRoutines = (props) => {
-const {token, user, setCurrentSingleRoutine} = props;
+const {token, user} = props;
 const [routines, setRoutines] = useState([])
 
 const getMyRoutines = async () => {
@@ -22,6 +22,8 @@ useEffect(() => {
     getMyRoutines();
     
 }, [] )
+
+const history = useHistory();
 
 return(
     <div id='my-routines-main-div'>
@@ -41,10 +43,6 @@ return(
                         <p id='routine-goal-label'>Goal: </p>
                         <p id='routine-goal'>{routine.goal}</p>
                     </div>
-                    <Link to={`/routines/${routine.id}/activities`} ><button id="add-activity-button" onClick={(event) => {
-                        event.preventDefault();
-                        setCurrentSingleRoutine(routine.id)
-                    }}>View or add activities</button></Link>
                     <div id='routine-activities-div'>
                         
                         <p id='activities-sec-header'>Activities</p>

@@ -12,7 +12,7 @@ import {
   ThankYouForRegistering,
   MyRoutines,
   Activities,
-  SingleRoutine
+  
 } from './components'
 import {fetchFromAPI} from './api'
 
@@ -22,7 +22,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
   const [username, setUsername] = useState("");
-  const [currentSingleRoutine, setCurrentSingleRoutine] = useState('');
+  
   
   const fetchActivities = async() => {
     const data = await fetchFromAPI({
@@ -67,14 +67,12 @@ function App() {
           <ThankYouForRegistering />
         </Route>
         <Route path='/routines/myroutines'>
-          <MyRoutines token={token} user={user} setCurrentSingleRoutine={setCurrentSingleRoutine} />
+          <MyRoutines token={token} user={user}  />
         </Route>
         <Route path='/activities'>
           <Activities fetchActivities={fetchActivities} token={token} setActivities={setActivities} activities={activities}/>
         </Route>
-        <Route path={`/routines/${currentSingleRoutine}/activities`}>
-          <SingleRoutine currentSingleRoutine={currentSingleRoutine} user={user} token={token}/>
-        </Route>
+        
 
         <Footer />
       </div>
