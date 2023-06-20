@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { fetchFromAPI } from "../api";
 import AddActivity from "./add-activity-to-routine";
+import DeleteRoutine from "./Delete";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const MyRoutines = (props) => {
@@ -56,6 +57,10 @@ const updateGoal = async(routineId) => {
     
 }
 
+const onDelete = async() => {
+    await getMyRoutines();
+}
+
 
 
 useEffect(() => {
@@ -101,7 +106,7 @@ return(
                                 event.preventDefault()
                                 setIsEditingRoutineName(true);
                             }}>✎ Edit routine name </button>
-                            <button className="delete-button-routine-title">Delete routine </button>
+                            <DeleteRoutine routine={routine} token={token} onDelete={onDelete}/>
                            
                         </div>
                     </div>
