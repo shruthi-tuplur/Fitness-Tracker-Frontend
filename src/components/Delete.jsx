@@ -19,12 +19,10 @@ const DeleteRoutine = ({
     }
 
     return (
-        <div>
             <button className="delete-button-routine-title" onClick={(event) => {
                event.preventDefault();
                deleteRoutine();
             }}>Delete routine </button>
-        </div>
     )
 
 }
