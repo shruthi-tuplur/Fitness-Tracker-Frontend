@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { fetchFromAPI } from "../api";
 import AddActivity from "./add-activity-to-routine";
-import DeleteRoutine from "./Delete";
+import DeleteRoutine from "./DeleteRoutine";
+import DeleteActivity from "./DeleteActivity";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const MyRoutines = (props) => {
@@ -186,7 +187,7 @@ return(
                                         <p id='my-activity-description'>Description: </p>
                                         <p id='activity-description'>{activity.description}</p>
                                         <div id='delete-activity-button-div'>
-                                        <button className="delete-activity-button"> Delete activity </button>
+                                        <DeleteActivity token={token} onDelete={onDelete} activity={activity}/>
                                         </div>
                                     </div>
                                 )
