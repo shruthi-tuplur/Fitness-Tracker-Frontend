@@ -21,7 +21,7 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token") ?? "");
   const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   
   
   const fetchActivities = async() => {
@@ -34,6 +34,7 @@ function App() {
       setActivities(data);
     }
 
+    /*
     if (token && !user) {
       const data = await fetchFromAPI({
         path: '/users/me',
@@ -47,6 +48,7 @@ function App() {
         console.log("The user has been set", data);
       }
     }
+      */
 
   }
 
@@ -77,10 +79,10 @@ function App() {
           <DefaultHomepage token={token}/>
         </Route>
         <Route path = '/users/register'>
-          <Register setToken = {setToken} setUser = {setUser} setUsername={setUsername}/>
+          <Register setToken = {setToken} setUser = {setUser} />
         </Route>
         <Route path = '/users/login'>
-          <Login setToken = {setToken} setUser = {setUser} setUsername={setUsername} username = {username} user={user}/>
+          <Login setToken = {setToken} setUser = {setUser} user={user}/>
         </Route>
         <Route path = '/routines/publicroutines'>
           <PublicRoutines token={ token } />

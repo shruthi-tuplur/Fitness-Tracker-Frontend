@@ -890,5 +890,28 @@ flex-direction: row;
     width: 50px;
    }
 
+   #routine-goal-div-public{
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    display: flex;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    
+   }
 
+   #duration-div-public{
+    display: flex;
+    flex-direction: row;
+    margin-right: 50px;
+    margin-left: 20px;
+   }
+
+   #count-div-public{
+    display: flex;
+    flex-direction: row;
+    margin-right: 50px;
+    margin-left: 20px;
+   }
    

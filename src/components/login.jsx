@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
-const Login = ({setToken, setUser, setUsername, username, user}) => {
+const Login = ({setToken, setUser}) => {
 
     const [password, setPassword] = useState("");
+    const [username, setUsername] = useState('');
     
     const history = useHistory();
 
     const handleSubmit = async (event) => {
-        console.log(username)
+
         event.preventDefault()
 
         const requestBody = { 
@@ -33,13 +34,12 @@ const Login = ({setToken, setUser, setUsername, username, user}) => {
             })
 
             const user = data;
-            
             if (token) {
                 setUsername('');
                 setPassword('');
                 setToken(token);
                 setUser(user);
-                console.log("set user", user);
+                localStorage.setItem("token", token)
                 history.push('/');
             }
         }

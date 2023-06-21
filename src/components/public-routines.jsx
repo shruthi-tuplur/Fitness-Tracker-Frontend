@@ -38,7 +38,7 @@ if(token){
                         <p id='routine-creator-label'>Routine creator</p>
                         </div>
 
-                    <div id='routine-goal-div'>
+                    <div id='routine-goal-div-public'>
                         <p id='routine-goal-label'>Goal: </p>
                         <p id='routine-goal'>{routine.goal}</p>
                     </div>
@@ -51,11 +51,11 @@ if(token){
                                     <div key={activity.id} className = 'activity-card'>
                                         <div className = 'activity-first-row'>
                                             <p id='activity-name'>{activity.name}</p>
-                                                <div id='duration-div'>
+                                                <div id='duration-div-public'>
                                                     <p id='duration-label'>Duration (minutes): </p>
                                                     <p id='duration'>{activity.duration}</p>
                                                 </div>
-                                            <div id='count-div'>
+                                            <div id='count-div-public'>
                                                 <p  id='count-label'>Count: </p>
                                                 <p id='count'>{activity.count}</p>
                                             </div>
