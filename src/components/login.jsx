@@ -9,7 +9,7 @@ const Login = ({setToken, setUser, setUsername, username, user}) => {
     const history = useHistory();
 
     const handleSubmit = async (event) => {
-
+        console.log(username)
         event.preventDefault()
 
         const requestBody = { 
@@ -33,6 +33,7 @@ const Login = ({setToken, setUser, setUsername, username, user}) => {
             })
 
             const user = data;
+            
             if (token) {
                 setUsername('');
                 setPassword('');

@@ -867,3 +867,28 @@ flex-direction: row;
     background-color: black;
     color: white;
    }
+
+   #edit-duration-button-div{
+    margin-left: 5px;
+   }
+
+   #done-editing-duration-button{
+    background-color: white;
+    border: none;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: left;
+    text-decoration: underline;
+   }
+
+   #done-editing-duration-button:hover{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+   }
+
+   #edit-duration{
+    width: 50px;
+   }
+
+
+   

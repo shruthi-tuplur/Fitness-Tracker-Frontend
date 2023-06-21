@@ -12,6 +12,8 @@ const [isEditingRoutineName, setIsEditingRoutineName] = useState(false)
 const [newRoutineName, setNewRoutineName] = useState('')
 const [isEditingRoutineGoal, setIsEditingRoutineGoal] = useState(false);
 const [newRoutineGoal, setNewRoutineGoal] = useState('')
+const [isEditingDuration, setIsEditingDuration] = useState(false);
+const [newDuration, setNewDuration] = useState('');
 
 const getMyRoutines = async () => {
     
@@ -165,14 +167,43 @@ return(
                                                 <p id='activity-name'>{activity.name}</p>
                                             </div>
                                                 <div id='duration-div'>
+                                                    {(isEditingDuration)
+                                                    ? (<div>
+                                                        <div id='my-activity-duration-content'>
+                                                            <p id='duration-label'>Duration (minutes): </p>
+                                                            <p id='duration'>{activity.duration}</p>
+                                                        </div>
+                                                        <div  id='edit-duration-button-div'>
+                                                        <div>
+                                                        <input type='text' name='new-routine-activity'  placeholder='Enter new duration' value = {newDuration} onChange = {(event) => {setNewDuration(event.target.value)}} className="new-routine-labels" id='edit-duration'></input>
+                                                        </div>  
+                                                        <div>
+                                                        <button id='done-editing-duration-button' onClick={(event) => {
+                                                            event.preventDefault()
+                                                            setIsEditingDuration(false);
+                                                        }}>Done</button>
+                                                        <button id='done-editing-duration-button' onClick={(event) => {
+                                                            event.preventDefault()
+                                                            setIsEditingDuration(false);
+                                                        }}>Cancel</button>
+                                                        </div>
+                                                        </div>  
+                                                        </div>)
+                                                    : (<div>
                                                     <div id='my-activity-duration-content'>
                                                         <p id='duration-label'>Duration (minutes): </p>
                                                         <p id='duration'>{activity.duration}</p>
                                                     </div>
                                                     <div>
-                                                     <button className="edit-button-duration"> Edit duration </button>
-                                                    </div>    
+                                                     <button className="edit-button-duration" onClick={(event) => {
+                                                        event.preventDefault();
+                                                        setIsEditingDuration(true);
+                                                     }}> Edit duration </button>
+                                                    </div>  
+                                                    </div>  )
+                        }
                                                 </div>
+                                                    
                                             <div id='count-div'>
                                             <div id='my-activity-count-content'>
                                                 <p  id='count-label'>Count: </p>
