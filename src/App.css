@@ -888,6 +888,8 @@ flex-direction: row;
 
    #edit-duration{
     width: 50px;
+    margin-bottom: 10px;
+    margin-left: 2px;
    }
 
    #routine-goal-div-public{
@@ -915,3 +917,22 @@ flex-direction: row;
     margin-left: 20px;
    }
    
+#edit-count{
+  width: 50px;
+  margin-left: 7px;
+  margin-bottom: 10px;
+}
+
+#done-editing-count-button{
+  background-color: white;
+  border: none;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: left;
+  text-decoration: underline;
+ }
+
+ #done-editing-count-button:hover{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+ }

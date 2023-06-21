@@ -14,6 +14,8 @@ const [isEditingRoutineGoal, setIsEditingRoutineGoal] = useState(false);
 const [newRoutineGoal, setNewRoutineGoal] = useState('')
 const [isEditingDuration, setIsEditingDuration] = useState(false);
 const [newDuration, setNewDuration] = useState('');
+const [isEditingCount, setIsEditingCount] = useState('');
+const [newCount, setNewCount] = useState('')
 
 const getMyRoutines = async () => {
     
@@ -58,6 +60,19 @@ const updateGoal = async(routineId) => {
     setNewRoutineGoal('')
     history.push('/routines/myroutines');
     
+}
+
+const updateDuration = async() => {
+    console.log('hello')
+
+    // Nery please finish this function
+    
+}
+
+const updateCount = async() => {
+    console.log('hello')
+    
+    // Nery please finish this function
 }
 
 const onDelete = async() => {
@@ -175,7 +190,7 @@ return(
                                                         </div>
                                                         <div  id='edit-duration-button-div'>
                                                         <div>
-                                                        <input type='text' name='new-routine-activity'  placeholder='Enter new duration' value = {newDuration} onChange = {(event) => {setNewDuration(event.target.value)}} className="new-routine-labels" id='edit-duration'></input>
+                                                        <input type='text' name='new-routine-activity'  value = {newDuration} onChange = {(event) => {setNewDuration(event.target.value)}} className="new-routine-labels" id='edit-duration'></input>
                                                         </div>  
                                                         <div>
                                                         <button id='done-editing-duration-button' onClick={(event) => {
@@ -204,15 +219,43 @@ return(
                         }
                                                 </div>
                                                     
-                                            <div id='count-div'>
-                                            <div id='my-activity-count-content'>
-                                                <p  id='count-label'>Count: </p>
-                                                <p id='count'>{activity.count}</p>
-                                            </div>
-                                             <div>
-                                                <button className="edit-button-count"> Edit count </button>
-                                            </div>    
-                                            </div>
+                                                <div id='count-div'>
+                                                    {(isEditingCount)
+                                                    ? (<div>
+                                                        <div id='my-activity-count-content'>
+                                                            <p id='count-label'>Count: </p>
+                                                            <p id='count'>{activity.count}</p>
+                                                        </div>
+                                                        <div  id='edit-count-button-div'>
+                                                        <div>
+                                                        <input type='text' name='new-routine-activity' value = {newCount} onChange = {(event) => {setNewCount(event.target.value)}} className="new-routine-labels" id='edit-count'></input>
+                                                        </div>  
+                                                        <div>
+                                                        <button id='done-editing-count-button' onClick={(event) => {
+                                                            event.preventDefault()
+                                                            setIsEditingCount(false);
+                                                        }}>Done</button>
+                                                        <button id='done-editing-count-button' onClick={(event) => {
+                                                            event.preventDefault()
+                                                            setIsEditingCount(false);
+                                                        }}>Cancel</button>
+                                                        </div>
+                                                        </div>  
+                                                        </div>)
+                                                    : (<div>
+                                                    <div id='my-activity-count-content'>
+                                                        <p id='count-label'>Count: </p>
+                                                        <p id='count'>{activity.count}</p>
+                                                    </div>
+                                                    <div>
+                                                     <button className="edit-button-count" onClick={(event) => {
+                                                        event.preventDefault();
+                                                        setIsEditingCount(true);
+                                                     }}> Edit count</button>
+                                                    </div>  
+                                                    </div>  )
+                        }
+                                                </div>
                                             
                                         </div>
                                         <p id='my-activity-description'>Description: </p>
