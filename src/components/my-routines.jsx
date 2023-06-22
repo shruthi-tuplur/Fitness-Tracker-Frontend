@@ -62,18 +62,41 @@ const updateGoal = async(routineId) => {
     
 }
 
-const updateDuration = async() => {
-    console.log('hello')
-
-    // Nery please finish this function
-    
-}
-
-const updateCount = async() => {
-    console.log('hello')
-    
-    // Nery please finish this function
-}
+const updateDuration = async (routineId) => {
+    const requestBody = {
+      duration: newDuration,
+    };
+  
+    const patchRequest = await fetchFromAPI({
+      path: `/routines/${routineId}`,
+      method: "PATCH",
+      body: requestBody,
+      token,
+    });
+  //test
+    console.log(patchRequest);
+    await getMyRoutines();
+    setNewDuration('');
+    history.push('/routines/myroutines');
+  };
+  
+  const updateCount = async (routineId) => {
+    const requestBody = {
+      count: newCount,
+    };
+  
+    const patchRequest = await fetchFromAPI({
+      path: `/routines/${routineId}`,
+      method: "PATCH",
+      body: requestBody,
+      token,
+    });
+  
+    console.log(patchRequest);
+    await getMyRoutines();
+    setNewCount('');
+    history.push('/routines/myroutines');
+  };
 
 const onDelete = async() => {
     await getMyRoutines();
