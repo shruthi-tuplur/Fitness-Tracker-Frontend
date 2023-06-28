@@ -9,4 +9,4 @@ export {default as MyRoutines} from './my-routines';
 export {default as Activities} from './activities';
 export { default as DeleteRoutine } from './DeleteRoutine';
 export { default as DeleteActivity } from './DeleteActivity';
-
+export {default as SingleUserView} from './singleUserView';

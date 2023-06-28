@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { fetchFromAPI } from "../api";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { CreateRoutine } from './index';
 
 const PublicRoutines = (props) => {
-    const {token} = props;
+    const {token, setSingleUser} = props;
     const [routines, setRoutines] = useState([]);
     const [newPost, setNewPost] = useState({});
+    
+    const history = useHistory()
 
     const getPublicRoutines = async () => {
 
@@ -30,11 +32,18 @@ if(token){
     <div id='public-routines-left'>
      <h1 id='public-routines-header'>Public Routines</h1>   
     {routines.map(routine => {
+        setSingleUser('cheese');
         return(
             <div key={routine.id} className = 'routine'>
                     <p id='routine-title'>{routine.name}</p>
                     <div id='creator-name-div'>
-                        <p id='creator-name'>{routine.creatorName}</p>
+                        <Link to={`/routines/publicroutines/singleuserview`}>
+                        <button id='creator-name' onClick={(event) => {
+                            event.preventDefault();
+                            setSingleUser(routine.creatorName);
+                            history.push('/routines/publicroutines/singleuserview')
+                        }}>{routine.creatorName}</button>
+                        </Link>
                         <p id='routine-creator-label'>Routine creator</p>
                         </div>
 

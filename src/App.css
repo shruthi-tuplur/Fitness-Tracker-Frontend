@@ -285,6 +285,26 @@ text-decoration: none;
   font-family: 'Noto Sans', sans-serif;
   font-size: 15px;
   margin-bottom: 0px; 
+  color: black;
+  border: none;
+  background-color: white;
+  padding-left: 0px;
+}
+
+#creator-name-not-button{
+  margin-top: 0px;
+  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  margin-bottom: 0px; 
+  color: black;
+  border: none;
+  background-color: white;
+  padding-left: 0px;
+}
+
+#creator-name:hover{
+  text-decoration: underline;
 }
 
 #routine-creator-label{
@@ -936,3 +956,22 @@ flex-direction: row;
   color: white;
   text-decoration: none;
  }
+
+#single-user-view-main-div{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-routine{
+  display: flex;
+  flex: column;
+  border: solid 1px black;
+  margin-bottom: 60px;
+  flex-direction: column;
+  width: 60vw;
+}
+
+#single-user-header{
+  font-family: 'Noto Sans', sans-serif;
+}

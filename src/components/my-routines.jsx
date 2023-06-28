@@ -71,8 +71,6 @@ const updateDuration = async (routineId, activityId) => {
     })
 
     
-    console.log(data)
-
     for(let i=0; i<data.length; i++){
         if (data[i].id === routineId){
             for(let j=0; j<data[i].activities.length; j++){
@@ -82,9 +80,7 @@ const updateDuration = async (routineId, activityId) => {
             }
         }
     }
-    console.log(routineActivityId)
-    
-
+   
     
     const requestBody = {
       duration: newDuration,
@@ -97,7 +93,7 @@ const updateDuration = async (routineId, activityId) => {
       token,
     });
   //test
-    console.log(patchRequest);
+    
     await getMyRoutines();
     setNewDuration('');
     history.push('/routines/myroutines');
@@ -105,22 +101,42 @@ const updateDuration = async (routineId, activityId) => {
     
   };
   
-  const updateCount = async (routineId) => {
+  const updateCount = async (routineId, activityId) => {
+
+    let routineActivityId; 
+    const data = await fetchFromAPI({
+        path: `/activities/${activityId}/routines`,
+        
+    })
+
+
+    for(let i=0; i<data.length; i++){
+        if (data[i].id === routineId){
+            for(let j=0; j<data[i].activities.length; j++){
+                if(data[i].activities[j].id === activityId){
+                    routineActivityId = data[i].activities[j].routineActivityId;
+                }
+            }
+        }
+    }
+    
+    
     const requestBody = {
       count: newCount,
     };
   
     const patchRequest = await fetchFromAPI({
-      path: `/routines/${routineId}`,
+      path: `/routine_activities/${routineActivityId}`,
       method: "PATCH",
       body: requestBody,
       token,
     });
-  
-    console.log(patchRequest);
+  //test
+    
     await getMyRoutines();
-    setNewCount('');
+    setNewDuration('');
     history.push('/routines/myroutines');
+
   };
 
 const onDelete = async() => {
