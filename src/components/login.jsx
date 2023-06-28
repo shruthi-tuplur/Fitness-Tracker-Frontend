@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchFromAPI } from "../api";
 
+
 const Login = ({setToken, setUser}) => {
 
     const [password, setPassword] = useState("");
@@ -13,6 +14,7 @@ const Login = ({setToken, setUser}) => {
 
         event.preventDefault()
 
+        
         const requestBody = { 
             username,
             password 
@@ -25,8 +27,14 @@ const Login = ({setToken, setUser}) => {
         });
 
         console.log("data: ", data);   
+    
 
         const { token } = data;
+
+        if(!token) {
+           alert("Invalid username or password")
+        }
+
         if (token) {
             const data = await fetchFromAPI({
                 path: "/users/me",
@@ -43,7 +51,7 @@ const Login = ({setToken, setUser}) => {
                 history.push('/');
             }
         }
-    }
+    
 
 return(
 
@@ -81,6 +89,7 @@ return(
     </div>
 )
 
+}
 }
 
 export default Login;

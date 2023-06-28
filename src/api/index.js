@@ -23,9 +23,11 @@ export const fetchFromAPI = async({path, method, body, token}) => {
 
         const response = await result.json();
         console.log("response: ", response);
-        if (response.error) throw response.error;
+        if (response.error){
+            alert(`Error: ${response.error}`)
+        }
         return response;
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
