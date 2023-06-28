@@ -51,6 +51,7 @@ const Login = ({setToken, setUser}) => {
                 history.push('/');
             }
         }
+    }
     
 
 return(
@@ -89,7 +90,7 @@ return(
     </div>
 )
 
-}
+
 }
 
 export default Login;

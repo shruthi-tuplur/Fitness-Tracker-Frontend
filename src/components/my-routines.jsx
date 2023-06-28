@@ -27,6 +27,7 @@ const getMyRoutines = async () => {
 }
 
 const updateName = async(routineId) => {
+    
     const requestBody = {
         name: newRoutineName,
     }
@@ -62,13 +63,35 @@ const updateGoal = async(routineId) => {
     
 }
 
-const updateDuration = async (routineId) => {
+const updateDuration = async (routineId, activityId) => {
+    let routineActivityId; 
+    const data = await fetchFromAPI({
+        path: `/activities/${activityId}/routines`,
+        
+    })
+
+    
+    console.log(data)
+
+    for(let i=0; i<data.length; i++){
+        if (data[i].id === routineId){
+            for(let j=0; j<data[i].activities.length; j++){
+                if(data[i].activities[j].id === activityId){
+                    routineActivityId = data[i].activities[j].routineActivityId;
+                }
+            }
+        }
+    }
+    console.log(routineActivityId)
+    
+
+    
     const requestBody = {
       duration: newDuration,
     };
   
     const patchRequest = await fetchFromAPI({
-      path: `/routines/${routineId}`,
+      path: `/routine_activities/${routineActivityId}`,
       method: "PATCH",
       body: requestBody,
       token,
@@ -78,6 +101,8 @@ const updateDuration = async (routineId) => {
     await getMyRoutines();
     setNewDuration('');
     history.push('/routines/myroutines');
+
+    
   };
   
   const updateCount = async (routineId) => {
@@ -219,6 +244,7 @@ return(
                                                         <button id='done-editing-duration-button' onClick={(event) => {
                                                             event.preventDefault()
                                                             setIsEditingDuration(false);
+                                                            updateDuration(routine.id, activity.id)
                                                         }}>Done</button>
                                                         <button id='done-editing-duration-button' onClick={(event) => {
                                                             event.preventDefault()
@@ -257,6 +283,7 @@ return(
                                                         <button id='done-editing-count-button' onClick={(event) => {
                                                             event.preventDefault()
                                                             setIsEditingCount(false);
+                                                            updateCount(routine.id, activity.id)
                                                         }}>Done</button>
                                                         <button id='done-editing-count-button' onClick={(event) => {
                                                             event.preventDefault()

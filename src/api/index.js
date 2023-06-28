@@ -20,7 +20,7 @@ export const fetchFromAPI = async({path, method, body, token}) => {
             getURL(path),
             getOptions(method, body, token),
         );
-
+            //debugger;
         const response = await result.json();
         console.log("response: ", response);
         if (response.error){
